@@ -1,7 +1,24 @@
 [project]
-name = "fastapi"
+name = "fastapi-template"
 version = "0.1.0"
-description = "Add your description here"
+description = "Basic FastAPI template with CRUD operations and React frontend integration"
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = []
+requires-python = ">=3.8"
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "sqlalchemy>=2.0.0",
+    "pydantic>=2.0.0",
+    "python-multipart>=0.0.6"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.25.0"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

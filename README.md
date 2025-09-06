@@ -30,6 +30,27 @@ This is a basic FastAPI template that includes a simple product API with CRUD fu
 
 ### Backend (FastAPI)
 
+#### Option 1: Using uv (Recommended)
+
+1. Install uv (if not already installed):
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+2. Create and activate a virtual environment with dependencies:
+   ```bash
+   uv venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   uv pip install -e .
+   ```
+
+3. Run the FastAPI server:
+   ```bash
+   uv run uvicorn main:app --reload
+   ```
+
+#### Option 2: Using pip
+
 1. Create and activate a virtual environment:
    ```bash
    python -m venv venv
@@ -38,7 +59,7 @@ This is a basic FastAPI template that includes a simple product API with CRUD fu
 
 2. Install dependencies:
    ```bash
-   pip install fastapi uvicorn sqlalchemy
+   pip install -e .
    ```
 
 3. Run the FastAPI server:
@@ -84,6 +105,29 @@ The API comes pre-loaded with sample products:
 - Laptop (ID: 2) - ₹83,499
 - Pen (ID: 3) - ₹166
 - Table (ID: 4) - ₹16,699
+
+## Dependencies
+
+This project uses `pyproject.toml` for dependency management. Main dependencies include:
+
+- **FastAPI** (>=0.104.0) - Modern web framework for building APIs
+- **Uvicorn** (>=0.24.0) - ASGI server for running FastAPI applications
+- **SQLAlchemy** (>=2.0.0) - Database ORM for Python
+- **Pydantic** (>=2.0.0) - Data validation using Python type annotations
+- **Python-multipart** (>=0.0.6) - For handling form data and file uploads
+
+### Development Dependencies
+
+- **pytest** (>=7.0.0) - Testing framework
+- **pytest-asyncio** (>=0.21.0) - For testing async code
+- **httpx** (>=0.25.0) - HTTP client for testing API endpoints
+
+Install development dependencies with:
+```bash
+uv pip install -e ".[dev]"  # Using uv
+# or
+pip install -e ".[dev]"     # Using pip
+```
 
 ## Development Notes
 
