@@ -12,14 +12,23 @@ products = [
 ]
 
 
+# Get all products
 @app.get("/products")
 def get_all_products():
     return products
 
 
+# Get product by ID
 @app.get("/products/{id}")
 def get_product_by_id(id: int):
     for product in products:
         if product.id == id:
             return product
     return {"error": "Product not found"}
+
+
+# Add a new product
+@app.post("/products")
+def add_product(product: Product):
+    products.append(product)
+    return product
