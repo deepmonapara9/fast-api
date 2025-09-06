@@ -136,7 +136,7 @@ function App() {
     setError("");
     try {
       if (editId) {
-        await api.put(`/products/${editId}`, {
+        await api.put(`/products/₹{editId}`, {
           ...form,
           id: Number(form.id),
           price: Number(form.price),
@@ -335,7 +335,7 @@ function App() {
                         <td>{p.id}</td>
                         <td className="name-cell">{p.name}</td>
                         <td className="desc-cell" title={p.description}>{p.description}</td>
-                        <td className="price-cell">${currency(p.price)}</td>
+                        <td className="price-cell">₹{currency(p.price)}</td>
                         <td>
                           <span className="qty-badge">{p.quantity}</span>
                         </td>
